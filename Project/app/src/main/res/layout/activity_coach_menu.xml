@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#413248">
+
+    <!-- Botón de "atrás" -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+
+>
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_back" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/title_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="NOMBRE CLIENTE"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"/>
+    <!-- INTRODUCIR NOMBRE CLIENTE-->
+    <!-- TextViews cuadrados -->
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+
+        android:src="@drawable/logo_foreground" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/firstline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="125dp">
+
+        <!-- Creamos un LineaLauout -->
+        <TextView
+
+            android:id="@+id/LLtraining"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_weight="1"
+            android:gravity=""
+            android:text="Cuadrado 1"
+            android:textSize="18sp"
+            android:background="@drawable/box"
+            android:padding="10dp">
+
+        </TextView>
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:id="@+id/square_2"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Cuadrado 2"
+            android:textSize="18sp"
+            android:background="@drawable/box"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="fill_horizontal"
+        android:orientation="horizontal">
+
+        <!-- TextView cuadrado 3 -->
+        <TextView
+            android:id="@+id/square_3"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_weight="1"
+            android:background="@drawable/box"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Cuadrado 3"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/square_4"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_weight="1"
+            android:background="@drawable/box"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Cuadrado 4"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

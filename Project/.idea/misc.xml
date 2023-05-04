@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2395" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/box.xml" value="0.2715" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/logo_background.xml" value="0.2395" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/selection.xml" value="0.1775" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/font/font.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_select_client.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_main.xml" value="0.35805330243337197" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_menu_coach.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_register.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

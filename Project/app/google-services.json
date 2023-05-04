@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "573928311487",
+    "firebase_url": "https://grow-624f2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "grow-624f2",
+    "storage_bucket": "grow-624f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573928311487:android:9abf7098823e6caa34140a",
+        "android_client_info": {
+          "package_name": "com.example.growup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573928311487-cn08i4g98griqnh0h7jts09nmluks0tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcXxUOfSjhZ_BlFo1N-oObDedLmEb_CMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573928311487-cn08i4g98griqnh0h7jts09nmluks0tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
