@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -51,34 +50,64 @@
         android:orientation="horizontal"
         android:layout_marginTop="125dp">
 
-        <!-- Creamos un LineaLauout -->
-        <TextView
 
-            android:id="@+id/LLtraining"
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/square_1"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:layout_weight="1"
-            android:gravity=""
-            android:text="Cuadrado 1"
-            android:textSize="18sp"
-            android:background="@drawable/box"
-            android:padding="10dp">
+            android:background="@drawable/box">
 
-        </TextView>
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_training"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/training"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
 
         <View
             android:layout_width="40dp"
             android:layout_height="1dp"/>
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/square_2"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Cuadrado 2"
-            android:textSize="18sp"
-            android:background="@drawable/box"
-            android:padding="10dp"/>
+            android:background="@drawable/box">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_diet"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/diet"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -90,33 +119,63 @@
         android:gravity="fill_horizontal"
         android:orientation="horizontal">
 
-        <!-- TextView cuadrado 3 -->
-        <TextView
+
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/square_3"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:layout_weight="1"
-            android:background="@drawable/box"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Cuadrado 3"
-            android:textSize="16sp" />
+            android:background="@drawable/box">
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_upload"
+                android:paddingTop="19dp"
+                />
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/upload"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <View
             android:layout_width="40dp"
             android:layout_height="1dp"/>
-
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/square_4"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:layout_weight="1"
-            android:background="@drawable/box"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Cuadrado 4"
-            android:textSize="16sp" />
+            android:background="@drawable/box">
 
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_statitics"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/statistics"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 
 

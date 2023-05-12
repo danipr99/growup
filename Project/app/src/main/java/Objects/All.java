@@ -7,6 +7,7 @@ public class All {
     private static ArrayList<Coach>  allCoachs;
     private static Coach coach;
     private static Client client;
+
     public All() {
         allClients = new ArrayList<Client>();
         allCoachs =  new ArrayList<Coach>();

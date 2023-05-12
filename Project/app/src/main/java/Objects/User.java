@@ -4,19 +4,28 @@ import java.util.Arrays;
 import java.util.Objects;
 //Clase de la que heredan los dos tipos de usuarios: Coachs y Clients
 public class User {
-    private String[] nameSurname;
+    private String nameSurname;
     private String email;
     private String pasword;
     private int age;
+    private String uid;
 
-    public User(String nameSurname, String email, String pasword, int age){
-        this.nameSurname=nameSurname.split(" ");
+    public User(String nameSurname, String email, String pasword, int age, String uid){
+        this.nameSurname=nameSurname;
         this.email=email;
         this.pasword=pasword;
         this.age=age;
+        this.uid=uid;
+    }
+    public User(String nameSurname, String email, String pasword, int age){
+        this.nameSurname=nameSurname;
+        this.email=email;
+        this.pasword=pasword;
+        this.age=age;
+        this.uid="Prueba";
     }
 
-    public String[] getNameSurname() {
+    public String getNameSurname() {
         return nameSurname;
     }
 
@@ -32,7 +41,7 @@ public class User {
         return age;
     }
 
-    public void setNameSurname(String[] nameSurname) {
+    public void setNameSurname(String nameSurname) {
         this.nameSurname = nameSurname;
     }
 
@@ -48,29 +57,24 @@ public class User {
         this.age = age;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
 
     @Override
     public String toString() {
         return "Objects.User{" +
-                "nameSurname=" + Arrays.toString(nameSurname) +
+                "nameSurname=" + nameSurname +
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 '}';
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return age == user.age && Arrays.equals(nameSurname, user.nameSurname) && Objects.equals(email, user.email);
-    }
 
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(email, age);
-        result = 31 * result + Arrays.hashCode(nameSurname);
-        return result;
-    }
 
 }
 

@@ -1,21 +1,23 @@
 package Objects;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Coach extends User{
 
-    private ArrayList<Client> myClients;
+    private List<Client> myClients;
 
-    public Coach(String nameSurname, String email, String password, int age, ArrayList<Client> myClients) {
-        super(nameSurname, email, password, age);
+
+    public Coach(String nameSurname, String email, String password, int age,String uid, List<Client> myClients) {
+        super(nameSurname, email, password, age, uid);
         this.myClients=myClients;
     }
-    public Coach(String nameSurname, String email, String password, int age) {
-        super(nameSurname, email, password, age);
+    public Coach(String nameSurname, String email, String password, int age, String uid) {
+        super(nameSurname, email, password, age, uid);
         this.myClients= new ArrayList<Client>();
     }
 
-    public ArrayList<Client> getMyClients() {
+    public List<Client> getMyClients() {
         return myClients;
     }
     public boolean isMyClient(Client client){

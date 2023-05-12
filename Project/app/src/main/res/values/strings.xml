@@ -10,4 +10,8 @@
     <string name="nameSurname_hint">Name and Surname</string>
     <string name="age_hint">Age</string>
     <string name="choose_coach">Choose your coach</string>
+    <string name="statistics">Statistics</string>
+    <string name="upload">Upload</string>
+    <string name="diet">Diet</string>
+    <string name="training">Training</string>
 </resources>

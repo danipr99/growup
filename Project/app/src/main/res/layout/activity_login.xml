@@ -102,8 +102,8 @@
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
+        android:backgroundTint="#D72534"
         android:onClick="go"
-        android:text="@string/login_button"
-        android:backgroundTint="#D72534"/>
+        android:text="@string/login_button" />
 
 </RelativeLayout>

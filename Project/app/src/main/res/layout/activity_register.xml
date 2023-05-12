@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -17,7 +18,7 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:letterSpacing="0.2"
-        android:textSize="22dp"
+        android:textSize="22sp"
 
 
         />
@@ -27,10 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_foreground">
+        android:src="@drawable/logo_foreground"
+        android:contentDescription="@string/app_name">
 
     </ImageView>
-
 
     <LinearLayout
         android:id="@+id/in"
@@ -40,8 +41,7 @@
         android:gravity="center_vertical"
         android:layout_below="@id/logo"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:layout_marginBottom="10dp">
 
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_weight="1"
             android:text="@string/login"
             android:gravity="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="#A6A6A6"/>
 
         <TextView
@@ -61,15 +61,10 @@
             android:layout_weight="1"
             android:text="@string/register"
             android:gravity="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="#A6A6A6"
             android:background="@drawable/selection"
-
-
             />
-
-
-
     </LinearLayout>
 
 
@@ -78,10 +73,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/in"
-        android:drawableLeft="@drawable/ic_mail"
+        android:drawableStart="@drawable/ic_mail"
         android:drawablePadding="10dp"
         android:hint="@string/email_hint"
-        android:inputType="text" />
+        android:textColorHint="#A6A6A6"
+        android:inputType="text"
+        tools:ignore="TextFields"
+        android:autofillHints="" />
 
 
     <EditText
@@ -90,41 +88,49 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/email_edittext"
         android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/ic_lock"
+        android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="10dp"
         android:hint="@string/password_hint"
-        android:inputType="textEmailAddress" />
+        android:textColorHint="#A6A6A6"
+        android:inputType="textPassword"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/cPassword_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/passwordC_hint"
+        android:textColorHint="#A6A6A6"
         android:inputType="textPassword"
         android:layout_below="@+id/password_edittext"
-        android:drawableLeft="@drawable/ic_lock1"
+        android:drawableStart="@drawable/ic_lock1"
         android:drawablePadding="10dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:autofillHints="" />
     <EditText
         android:id="@+id/nameSurname_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nameSurname_hint"
+        android:textColorHint="#A6A6A6"
         android:inputType="text"
         android:layout_below="@+id/cPassword_edittext"
-        android:drawableLeft="@drawable/ic_fileperson"
+        android:drawableStart="@drawable/ic_fileperson"
         android:drawablePadding="10dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:autofillHints="" />
     <EditText
         android:id="@+id/age_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/age_hint"
+        android:textColorHint="#A6A6A6"
         android:inputType="number"
         android:layout_below="@+id/nameSurname_edittext"
-        android:drawableLeft="@drawable/ic_calendardate"
+        android:drawableStart="@drawable/ic_calendardate"
         android:drawablePadding="10dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:autofillHints="" />
 
     <Spinner
         android:id="@+id/spinnerRegister"
@@ -141,6 +147,6 @@
         android:layout_below="@+id/spinnerRegister"
         android:layout_marginTop="32dp"
         android:backgroundTint="#D72534"
-        android:text="Register" />
+        android:text="@string/login_button" />
 
 </RelativeLayout>
