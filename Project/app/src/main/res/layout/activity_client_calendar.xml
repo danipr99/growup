@@ -10,17 +10,28 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        >
 
+        >
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
+
+        <!-- Título -->
         <TextView
             android:id="@+id/title_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="NOMBRE CLIENTE"
             android:textSize="26sp"
             android:gravity="center"
             android:layout_weight="1"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="30dp"
+
             android:layout_marginTop="16dp"
             android:textColor="@color/white"/>
         <!-- INTRODUCIR NOMBRE CLIENTE-->
@@ -28,20 +39,18 @@
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:contentDescription="@string/app_name"
+
             android:src="@drawable/logo_foreground" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/list"
+    <!-- Calendario -->
+    <CalendarView
+        android:id="@+id/calendar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:minDate="01/05/2023"
+
         android:layout_below="@id/header"
-        android:layout_margin="25dp"
-        android:background="@drawable/selection"
-        >
+        />
 
-
-    </LinearLayout>
 </RelativeLayout>

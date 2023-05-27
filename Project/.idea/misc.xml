@@ -5,15 +5,27 @@
       <map>
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2395" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/box.xml" value="0.2715" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/ic_training.xml" value="0.193" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/logo_background.xml" value="0.2395" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/selection.xml" value="0.1775" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/font/font.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_calendar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_training.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_calendar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_diet.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_select_client.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_training.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_upload.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_upload_diet.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_upload_routine.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_upload_train.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_main.xml" value="0.35805330243337197" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_menu_coach.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_upload.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>

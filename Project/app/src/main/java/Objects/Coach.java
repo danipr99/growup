@@ -1,5 +1,7 @@
 package Objects;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,10 @@ public class Coach extends User{
 
     private List<Client> myClients;
 
+    public Coach(){
+        super("", "", "", 0);
+        this.myClients = new ArrayList<Client>();
+    }
 
     public Coach(String nameSurname, String email, String password, int age,String uid, List<Client> myClients) {
         super(nameSurname, email, password, age, uid);
@@ -15,6 +21,10 @@ public class Coach extends User{
     public Coach(String nameSurname, String email, String password, int age, String uid) {
         super(nameSurname, email, password, age, uid);
         this.myClients= new ArrayList<Client>();
+    }
+
+    public void setMyClients(List<Client> myClients) {
+        this.myClients = myClients;
     }
 
     public List<Client> getMyClients() {

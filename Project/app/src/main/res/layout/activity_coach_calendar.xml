@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#413248">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="back"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
+
+
+        <TextView
+            android:id="@+id/nameClient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE CLIENTE"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo_foreground" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:id="@+id/linearCalendar"
+        android:layout_below="@id/header"
+        android:background="@drawable/selection"
+        android:layout_centerHorizontal="true"
+
+        android:layout_height="400dp"
+        >
+
+
+    <CalendarView
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+
+        android:layout_height="400dp"
+        android:minDate="01/01/2023"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/goToRoutine"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/linearCalendar"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#D72534"
+        android:text="@string/login_button" />
+
+</RelativeLayout>

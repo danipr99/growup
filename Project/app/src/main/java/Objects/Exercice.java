@@ -1,46 +1,42 @@
 package Objects;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 import java.util.ArrayList;
 
 public class Exercice {
-    private static int contador=0;
-    private int id;
+
+    private int series;
     private String name;
-    private ArrayList<Integer> kg;// kg
-    private ArrayList<Integer> info; // Repetitions [0] | REC [1] | RIR [2][3]
+    private int kg;
+    private int repetitions;
+    private int rec;
+    private int rir;
     private int volume;
     private String details;
-    private int feedback; // -1 without feedback  |  0  injured  |  1
-    private Bitmap photo;
-     public Exercice(String name, ArrayList<Integer> kg, ArrayList<Integer> info, String details, Bitmap photo){
-         this.id=contador++;
+    private int feedback;
+    private String photo;
+     public Exercice(String name, int series,int kg,int rec, int rir, String details, String photo){
+         this.series = series;
          this.name=name;
-         this.kg = kg;
-         this.info=info;
-         kg.forEach((element) -> {
-             this.volume+=element;
-         });
-         this.volume=this.volume*info.get(0);
-
+         this.kg=kg;
+         this.rec=rec;
+         this.rir=rir;
+         this.volume=kg*repetitions;
          this.details=details;
-         this.feedback=-1;
+         this.feedback=7; //Default
          this.photo=photo;
      }
 
-    public static int getContador() {
-        return contador;
+
+    public int getSeries() {
+        return series;
     }
 
-    public static void setContador(int contador) {
-        Exercice.contador = contador;
+    public void setSeries(int series) {
+        this.series = series;
     }
-
-    public int getId() {
-        return id;
-    }
-
 
     public String getName() {
         return name;
@@ -50,20 +46,36 @@ public class Exercice {
         this.name = name;
     }
 
-    public ArrayList<Integer> getKg() {
+    public int getKg() {
         return kg;
     }
 
-    public void setKg(ArrayList<Integer> kg) {
+    public void setKg(int kg) {
         this.kg = kg;
     }
 
-    public ArrayList<Integer> getInfo() {
-        return info;
+    public int getRepetitions() {
+        return repetitions;
     }
 
-    public void setInfo(ArrayList<Integer> info) {
-        this.info = info;
+    public void setRepetitions(int repetitions) {
+        this.repetitions = repetitions;
+    }
+
+    public int getRec() {
+        return rec;
+    }
+
+    public void setRec(int rec) {
+        this.rec = rec;
+    }
+
+    public int getRir() {
+        return rir;
+    }
+
+    public void setRir(int rir) {
+        this.rir = rir;
     }
 
     public int getVolume() {
@@ -90,11 +102,11 @@ public class Exercice {
         this.feedback = feedback;
     }
 
-    public Bitmap getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Bitmap photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

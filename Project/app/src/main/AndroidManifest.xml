@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.growup">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.Manifest.permission.MANAGE_DOCUMENTS" />
-
 
     <application
         android:allowBackup="true"
@@ -20,7 +22,37 @@
         android:theme="@style/Theme.GROWUP"
         tools:targetApi="31">
         <activity
-            android:name=".coach_selectClient"
+            android:name=".Coach_diet"
+            android:exported="false" />
+        <activity
+            android:name=".Client_Training"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_upload_routine"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_upload_diet"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_upload_train"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_Training"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_upload"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_calendar"
+            android:exported="false" />
+        <activity
+            android:name=".Client_calendar"
+            android:exported="false" />
+        <activity
+            android:name=".Client_menu"
+            android:exported="false" />
+        <activity
+            android:name=".Coach_selectClient"
             android:exported="false" />
         <activity
             android:name=".Coach_menu"

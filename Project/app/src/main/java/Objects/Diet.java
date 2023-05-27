@@ -1,6 +1,7 @@
 package Objects;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Diet {
     private String breakfast;
@@ -8,16 +9,45 @@ public class Diet {
     private String dinner;
     private String snack;
     private String recommendations;
-    private ArrayList<Integer> macros; // [kcal][carbs][prot][fat]
+    private int kcal;
+    private int carbs;
+    private int prot;
+    private int fat;
+    private String uidCoach;
+    private boolean use;
 
-    public Diet(String breakfast, String lunch, String dinner, String snack, String recommendations, ArrayList<Integer> macros) {
+
+    public Diet(String breakfast, String lunch, String dinner, String snack, String recommendations, int kcal, int carbs, int prot, int fat, String uidCoach) {
         this.breakfast = breakfast;
         this.lunch = lunch;
         this.dinner = dinner;
         this.snack = snack;
         this.recommendations = recommendations;
-        this.macros = macros;
+        this.kcal = kcal;
+        this.carbs = carbs;
+        this.prot = prot;
+        this.fat = fat;
+        this.uidCoach = uidCoach;
+        this.use = false;
     }
+
+    public boolean isUse() {
+        return use;
+    }
+
+    public void setUse(boolean use) {
+        this.use = use;
+    }
+
+    public String getUidCoach() {
+        return uidCoach;
+    }
+
+    public void setUidCoach(String uidCoach) {
+        this.uidCoach = uidCoach;
+    }
+
+
 
     public String getBreakfast() {
         return breakfast;
@@ -59,11 +89,35 @@ public class Diet {
         this.recommendations = recommendations;
     }
 
-    public ArrayList<Integer> getMacros() {
-        return macros;
+    public int getKcal() {
+        return kcal;
     }
 
-    public void setMacros(ArrayList<Integer> macros) {
-        this.macros = macros;
+    public void setKcal(int kcal) {
+        this.kcal = kcal;
+    }
+
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(int carbs) {
+        this.carbs = carbs;
+    }
+
+    public int getProt() {
+        return prot;
+    }
+
+    public void setProt(int prot) {
+        this.prot = prot;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    public void setFat(int fat) {
+        this.fat = fat;
     }
 }

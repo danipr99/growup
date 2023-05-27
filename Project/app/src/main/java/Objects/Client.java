@@ -1,21 +1,29 @@
 package Objects;
 
 public class Client extends User{
-    private Coach myCoach;
-    public Client(String nameSurname, String email, String password, int age, Coach myCoach) {
-        super(nameSurname, email, password, age);
-        this.myCoach=myCoach;
+    private String uidMyCoach;
+
+    public Client(){
+        super("", "", "", 0);
+        this.uidMyCoach="";
     }
 
-    public Coach getMyCoach() {
-        return myCoach;
+    public Client(String nameSurname, String email, String password, int age, String uid, String uidMyCoach) {
+        super(nameSurname, email, password, age, uid);
+        this.uidMyCoach=uidMyCoach;
     }
 
-    public void setMyCoach(Coach coach){
+    public String getUidMyCoach() {
+        return uidMyCoach;
+    }
+
+    public void setUidMyCoach(String coach){
+        this.uidMyCoach = coach;
+        /*
         if(this.myCoach.isMyClient(this)){//Elimino al cliente de la lista de clientes de su antiguo Coach
             this.myCoach.deleteClient(this);
         }
         coach.newClient(this);
-        this.myCoach=coach;
+        this.myCoach=coach;*/
     }
 }

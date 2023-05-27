@@ -12,102 +12,101 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
 
->
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_back" />
+        >
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
 
-    <!-- Título -->
-    <TextView
-        android:id="@+id/nameClient"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="NOMBRE CLIENTE"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/white"/>
-    <!-- INTRODUCIR NOMBRE CLIENTE-->
-    <!-- TextViews cuadrados -->
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        <!-- Título -->
+        <TextView
+            android:id="@+id/title_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE CLIENTE"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            />
 
-        android:src="@drawable/logo_foreground" />
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/logo_foreground" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/firstline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="125dp">
 
 
         <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/square_1"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:background="@drawable/box"
-            android:orientation="vertical">
+            android:background="@drawable/box">
 
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
+                android:src="@drawable/ic_training"
                 android:paddingTop="10dp"
-                android:src="@drawable/ic_training" />
-
+                />
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/training"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:text="@string/training"
+                android:textSize="16sp"
+                />
         </LinearLayout>
 
         <View
             android:layout_width="40dp"
-            android:layout_height="1dp" />
-
+            android:layout_height="1dp"/>
         <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/square_2"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:background="@drawable/box"
-            android:orientation="vertical">
+            android:background="@drawable/box">
 
             <ImageView
                 android:id="@+id/image2"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
+                android:src="@drawable/ic_diet"
                 android:paddingTop="10dp"
-                android:src="@drawable/ic_diet" />
-
+                />
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/diet"
                 android:textColor="@color/white"
+                android:text="@string/diet"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>

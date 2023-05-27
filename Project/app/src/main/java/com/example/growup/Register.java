@@ -18,14 +18,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,31 +36,34 @@ import Objects.Coach;
 import Objects.User;
 
 public class Register extends AppCompatActivity {
+    private static final String TAG = "FirebaseError";
+    private DatabaseReference coachsRef = FirebaseDatabase.getInstance().getReference("Coachs");
+    private ArrayList<Coach> coachs = new ArrayList<Coach>();
     private FirebaseAuth mAuth;
-    EditText emailInput;
-    EditText passwordInput;
-    EditText cPasswordInput;
-    EditText nameInput;
-    EditText ageInput;
+    private EditText emailInput;
+    private EditText passwordInput;
+    private EditText cPasswordInput;
+    private EditText nameInput;
+    private EditText ageInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mAuth = FirebaseAuth.getInstance();
         All all = new All();
-
+        Intent login = new Intent(getApplicationContext(), Login.class);
         setContentView(R.layout.activity_register);
         TextView buttonLogin = findViewById(R.id.inLogin);
         Button register_button = findViewById(R.id.register_button);
 
 // Lista de opciones para el Spinner
         Spinner spinner = findViewById(R.id.spinnerRegister);
-        List<String> options = new ArrayList<>();
+
+        ArrayList<String> options = getListofCoachs();
         options.add("I'm a coach");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        //spinner.setPrompt("Select your coach");
+        spinner.setPrompt("Select your coach");
         spinner.setAdapter(adapter);
 
 
@@ -68,14 +71,12 @@ public class Register extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i1 = new Intent(getApplicationContext(), Login.class);
-                startActivity(i1);
+                startActivity(login);
             }
         });
         register_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i1 = new Intent(getApplicationContext(), Login.class);
                 emailInput = findViewById(R.id.email_edittext);
                 passwordInput = findViewById(R.id.password_edittext);
                 cPasswordInput = findViewById(R.id.cPassword_edittext);
@@ -88,7 +89,6 @@ public class Register extends AppCompatActivity {
                 String uid;
                 //Validación del login
                 if(!isEmpty(mail) && !isEmpty(password) && password.equals(cPasswordInput.getText().toString())){
-
                         //Registro de un coach
                         try{
                             mAuth.createUserWithEmailAndPassword(mail,password).addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
@@ -101,20 +101,19 @@ public class Register extends AppCompatActivity {
                                         if(spinner.getSelectedItem().toString().equals("I'm a coach")){
                                             List<Client> clients = new ArrayList<Client>();
 
-                                            Coach c = new Coach(nameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString(), Integer.parseInt(ageInput.getText().toString()), "uid",clients);
+                                            Coach c = new Coach(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(),clients);
                                             saveUserinDB(c);
                                             //Inserción al conjunto de Coachs
                                             all.newCoach(c);
                                         }else{//Registro de un Client
                                             //Creación del client
-                                            Client c = new Client(nameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString(), Integer.parseInt(ageInput.getText().toString()), all.searchCoach(spinner.getSelectedItem().toString()));
+                                            String uidCoach = searchCoach(spinner.getSelectedItem().toString());
+                                            Client c = new Client(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(), uidCoach);
                                             saveUserinDB(c);
                                             all.newClient(c);
 
                                         }
-                                        System.out.println(user.toString());
-
-                                        startActivity(i1);
+                                        startActivity(login);
                                         finish();
                                     }else{
                                         Toast.makeText(Register.this, "Fatal error", Toast.LENGTH_SHORT).show();
@@ -127,30 +126,54 @@ public class Register extends AppCompatActivity {
                             System.out.println("NOT WORKING");
                             Toast.makeText(Register.this, "Error in register: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-
                 }else{
                     Toast.makeText(Register.this, "Complete data", Toast.LENGTH_SHORT).show();
                 }
-
-
-/*
-                if(spinner.getSelectedItem().toString().equals("I'm a coach")){
-                    ArrayList<Client> clients = new ArrayList<Client>();
-
-                    Coach c = new Coach(nameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString(), Integer.parseInt(ageInput.getText().toString()), "uid",clients);
-                    //Inserción al conjunto de Coachs
-                    all.newCoach(c);
-                }else{//Registro de un Client
-                    //Creación del client
-                    Client c = new Client(nameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString(), Integer.parseInt(ageInput.getText().toString()), all.searchCoach(spinner.getSelectedItem().toString()));
-                    all.newClient(c);
-
-                }
-                startActivity(i1);*/
             }
         });
 
     }
+
+    private String searchCoach(String name) {
+        String result = "";
+        for(Coach one : coachs){
+            if(one.getNameSurname().equals(name)){
+                result = one.getUid();
+            }
+        }
+        return result;
+    }
+
+    private ArrayList<String> getListofCoachs() {
+        ArrayList<String> result = new ArrayList<String>();
+// Agregar un listener para obtener los datos de los hijos de Clients
+        coachsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Iterar sobre cada hijo de Clients
+                for (DataSnapshot clientSnapshot : dataSnapshot.getChildren()) {
+                    // Obtener el valor del hijo como un objeto Map
+
+                    // Convertir el objeto Map en un objeto Client
+                    Coach coach = new Coach();
+                    String w = clientSnapshot.getKey();
+                    coach.setUid(w);
+                    coach.setNameSurname(clientSnapshot.child("nameSurname").getValue().toString());
+                    coach.setEmail(clientSnapshot.child("email").getValue().toString());
+                    coach.setPasword(clientSnapshot.child("pasword").getValue().toString());
+                    coach.setAge(Integer.parseInt(clientSnapshot.child("age").getValue().toString()));
+                    result.add(coach.getNameSurname());
+                    coachs.add(coach);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error al leer los datos: " + databaseError.getMessage());
+            }
+        });
+        return result;
+    }
+
     public void saveUserinDB(User usuario) {
         DatabaseReference ref;
         if (usuario instanceof Client) {
@@ -164,8 +187,5 @@ public class Register extends AppCompatActivity {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         ref.child(uid).setValue(usuario);
     }
-
-
-
 
 }

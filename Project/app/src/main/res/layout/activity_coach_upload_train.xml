@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#413248">
+
+    <!-- Botón de "atrás" -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+
+        >
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/nameClient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE CLIENTE"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"/>
+        <!-- INTRODUCIR NOMBRE CLIENTE-->
+        <!-- TextViews cuadrados -->
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/logo_foreground" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/selection"
+        android:layout_below="@id/header">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cuestionary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/trainName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/trainName"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/exerNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name_your_exercice"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/kgEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/kg"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/repEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repetitions"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/recEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint= "@string/rec"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/rirEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/rir"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/detailsEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/give_some_details"
+            android:textColorHint="@color/white"
+            />
+        <Button
+            android:id="@+id/imagebutt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/insert_photo"
+            android:layout_margin="15dp"
+            android:backgroundTint="#D72534"/>
+        <Button
+            android:id="@+id/subirButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload"
+            android:layout_margin="15dp"
+            android:backgroundTint="#D72534"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

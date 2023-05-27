@@ -28,6 +28,11 @@ public class All {
     public ArrayList<Coach> getAllCoachs() {
         return allCoachs;
     }
+    public ArrayList<String> getAllCoachsString() {
+        ArrayList<String> result = new ArrayList<>();
+        allCoachs.forEach(e -> result.add(e.getNameSurname()));
+        return result;
+    }
 
     public void setAllCoachs(ArrayList<Coach> allCoach) {
         allCoachs = allCoach;

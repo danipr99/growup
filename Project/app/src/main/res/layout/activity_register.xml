@@ -18,7 +18,7 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:letterSpacing="0.2"
-        android:textSize="22sp"
+        android:textSize="26sp"
 
 
         />
@@ -65,6 +65,7 @@
             android:textColor="#A6A6A6"
             android:background="@drawable/selection"
             />
+
     </LinearLayout>
 
 
