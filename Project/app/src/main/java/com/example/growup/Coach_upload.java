@@ -23,11 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Coach_upload extends AppCompatActivity {
-    ImageButton backButton;
-    TextView clientName;
+    private ImageButton backButton;
+    private TextView clientName;
 
-    LinearLayout uploadTrain;
-    LinearLayout uploadDiet;
+    private LinearLayout uploadTrain;
+    private LinearLayout uploadDiet;
     private String coach;
 
     @Override

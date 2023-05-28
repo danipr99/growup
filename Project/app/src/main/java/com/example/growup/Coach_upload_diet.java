@@ -3,6 +3,7 @@ package com.example.growup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +31,7 @@ public class Coach_upload_diet extends AppCompatActivity {
     private TextView clientName;
     private Spinner spinnerTipoDieta;
 
-    private EditText dietNameEditText;
+
     private EditText desayunoEditText;
     private EditText comidaEditText;
     private EditText cenaEditText;
@@ -68,7 +69,7 @@ public class Coach_upload_diet extends AppCompatActivity {
 
 
 
-        dietNameEditText = findViewById(R.id.dietName);
+
         desayunoEditText = findViewById(R.id.desayunoEditText);
         comidaEditText = findViewById(R.id.comidaEditText);
         cenaEditText = findViewById(R.id.cenaEditText);
@@ -82,20 +83,20 @@ public class Coach_upload_diet extends AppCompatActivity {
         subirButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = dietNameEditText.getText().toString();
-                Diet diet = new Diet(desayunoEditText.getText().toString(), comidaEditText.getText().toString(), cenaEditText.getText().toString(), snackEditText.getText().toString(), recomendacionesEditText.getText().toString(), Integer.parseInt(kcalEditText.getText().toString()), Integer.parseInt(kcalEditText.getText().toString()), Integer.parseInt(kcalEditText.getText().toString()), Integer.parseInt(kcalEditText.getText().toString()), coach);
+                Diet diet = new Diet(desayunoEditText.getText().toString(), comidaEditText.getText().toString(), cenaEditText.getText().toString(), snackEditText.getText().toString(), recomendacionesEditText.getText().toString(), Integer.parseInt(kcalEditText.getText().toString()), Integer.parseInt(carbsEditText.getText().toString()), Integer.parseInt(protEditText.getText().toString()), Integer.parseInt(fatsEditText.getText().toString()), coach);
                 if(spinnerTipoDieta.getSelectedItem().equals("Bulk")){
-                    referenceDiet = FirebaseDatabase.getInstance().getReference().child("diet").child("bulk");
 
-                    referenceDiet.child(name).setValue(diet).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    referenceDiet = FirebaseDatabase.getInstance().getReference().child("Diet").child(coach);
+
+                    referenceDiet.child("Bulk").setValue(diet).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "Dieta guardada correctamente", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else if(spinnerTipoDieta.getSelectedItem().equals("Cut")){
-                    referenceDiet = FirebaseDatabase.getInstance().getReference().child("diet").child("cut");
-                    referenceDiet.child(name).setValue(diet).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    referenceDiet = FirebaseDatabase.getInstance().getReference().child("Diet").child(coach);
+                    referenceDiet.child("Cut").setValue(diet).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "Dieta guardada correctamente", Toast.LENGTH_SHORT).show();

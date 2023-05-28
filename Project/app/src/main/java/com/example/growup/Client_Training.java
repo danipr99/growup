@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,7 +47,6 @@ public class Client_Training extends AppCompatActivity {
     private StorageReference storageRef;
     private StorageReference storageRef1;
     private int selectedTextView = -1;
-    private TextView clientName;
     private ImageButton backButton;
     private TextView monthTextView;
     private TextView dayTextView;
@@ -62,6 +62,7 @@ public class Client_Training extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_training);
         String client = getIntent().getStringExtra("name");
+
         coach = getIntent().getStringExtra("coach_uid");
         dayOfWeek = getIntent().getIntExtra("dayOfWeek", 0);
         dayOfMonth = getIntent().getIntExtra("dayOfMonth", 0);
@@ -70,8 +71,7 @@ public class Client_Training extends AppCompatActivity {
         body = findViewById(R.id.body);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         clientUid = mAuth.getCurrentUser().getUid();
-        clientName = findViewById(R.id.nameClient);
-        clientName.setText(client);
+
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,8 +140,9 @@ public class Client_Training extends AppCompatActivity {
 
                         TextView nameTextView = new TextView(Client_Training.this);
                         LinearLayout.LayoutParams textLayout = new LinearLayout.LayoutParams(
+                                0,
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
+                                1.0f
                         );
                         nameTextView.setText(exerciseName);
                         nameTextView.setTextColor(Color.WHITE);
@@ -149,49 +150,28 @@ public class Client_Training extends AppCompatActivity {
                         textLayout.setMargins(40, 10, 30, 10);
                         nameTextView.setLayoutParams(textLayout);
 
-                        ImageView imageView = new ImageView(Client_Training.this);
-                        LinearLayout.LayoutParams imageLayout = new LinearLayout.LayoutParams(
-                                100,
-                                100,
-                                RelativeLayout.ALIGN_RIGHT
-
+                        Space espacioFlexible = new Space(Client_Training.this);
+                        LinearLayout.LayoutParams espacioParams = new LinearLayout.LayoutParams(
+                                0,
+                                0,
+                                1.0f
                         );
-                        imageLayout.setMargins(0, 20, 0, 20);
-                        imageView.setLayoutParams(imageLayout);
-                        //Cargar imagen
-                        String imageUrl = exerciseSnapshot.child("feedback").getValue().toString() + ".png";
-
-                        storageRef = storage.getReference().child(imageUrl);
-
-                        storageRef.getBytes(MAX_SIZE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                            @Override
-                            public void onSuccess(byte[] bytes) {
-                                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                imageView.setImageBitmap(bitmap);
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                Log.e(TAG, "Error al cargar imagen ");
-
-                            }
-                        });
+                        espacioFlexible.setLayoutParams(espacioParams);
 
                         ImageView arrowImageView = new ImageView(Client_Training.this);
                         LinearLayout.LayoutParams arrowLayout = new LinearLayout.LayoutParams(
-                                60,
-                                60,
-                                RelativeLayout.ALIGN_RIGHT
+                                100,
+                                100
 
                         );
-                        arrowLayout.setMargins(0, 40, 0, 40);
+                        arrowLayout.setMargins(0, 40, 20, 40);
                         arrowImageView.setLayoutParams(arrowLayout);
                         arrowImageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow));
 
 
                         // Agregamos los elementos al LinearLayout
                         topLayout.addView(nameTextView);
-                        topLayout.addView(imageView);
+                        topLayout.addView(espacioFlexible);
                         topLayout.addView(arrowImageView);
                         exerciseLayout.addView(topLayout);
 

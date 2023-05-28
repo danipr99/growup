@@ -43,16 +43,16 @@ public class Coach_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), Coach_calendar.class);
                 i.putExtra("name", client);
-                intent.putExtra("client_uid", clientUid);
+                i.putExtra("client_uid", clientUid);
                 startActivity(i);
             }
         });
         dietLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Coach_Training.class);
+                Intent i = new Intent(getApplicationContext(), Coach_diet.class);
                 i.putExtra("name", client);
-                intent.putExtra("client_uid", clientUid);
+                i.putExtra("client_uid", clientUid);
                 startActivity(i);
             }
         });
@@ -61,16 +61,16 @@ public class Coach_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), Coach_upload.class);
                 i.putExtra("name", client);
-                intent.putExtra("client_uid", clientUid);
+                i.putExtra("client_uid", clientUid);
                 startActivity(i);
             }
         });
         statLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Coach_Training.class);
+                Intent i = new Intent(getApplicationContext(), Statistics.class);
                 i.putExtra("name", client);
-                intent.putExtra("client_uid", clientUid);
+                i.putExtra("client_uid", clientUid);
                 startActivity(i);
             }
         });

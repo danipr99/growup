@@ -5,23 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,10 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Coach_diet extends AppCompatActivity {
+public class Client_diet extends AppCompatActivity {
     private LinearLayout body;
     private boolean bulk = true;
     private TextView clientName;
@@ -40,24 +31,30 @@ public class Coach_diet extends AppCompatActivity {
     private TextView macro2;
     private TextView macro3;
     private TextView macro4;
-
+    private ImageButton backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_diet);
-        String client = getIntent().getStringExtra("name");
-        String clientUid = getIntent().getStringExtra("client_uid");
+
+        String coach = getIntent().getStringExtra("coach_uid");
         body = findViewById(R.id.body);
-        clientName = findViewById(R.id.nameClient);
-        clientName.setText(client);
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        String coach = mAuth.getCurrentUser().getUid();
-        Log.e("Diet:", clientUid);
+        String clientUid = mAuth.getCurrentUser().getUid();
+
         macro1 = findViewById(R.id.kcalValue);
         macro2 = findViewById(R.id.carbsValue);
         macro3 = findViewById(R.id.protValue);
         macro4 = findViewById(R.id.fatValue);
 
+        backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         DatabaseReference clientRef = FirebaseDatabase.getInstance().getReference("Clients").child(clientUid);
         clientRef.child("isBulk").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -70,7 +67,7 @@ public class Coach_diet extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Diet:", "FALLOOO");
+                Log.e("Diet:", "ERROR");
             }
         });
         if(bulk){
@@ -82,14 +79,12 @@ public class Coach_diet extends AppCompatActivity {
     }
     private void createdietLinearLayouts(String coachUid, String dietType) {
 
-        Log.e("Diet:", "Aqui llega");
         DatabaseReference dietRef = FirebaseDatabase.getInstance().getReference("Diet").child(coachUid).child(dietType);
 
         dietRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Log.e("Diet:", "Aqui llega tambien");
 
                     macro1.setText(dataSnapshot.child("kcal").getValue().toString());
                     macro2.setText(dataSnapshot.child("carbs").getValue().toString());
@@ -105,9 +100,6 @@ public class Coach_diet extends AppCompatActivity {
                     createMeal("Snack", infoSnack);
                     String inforecom = dataSnapshot.child("recommendations").getValue().toString();
                     createMeal("Recommendations", inforecom);
-
-
-
 
                 } else {
                     // La dieta no existe en la base de datos
@@ -141,7 +133,7 @@ public class Coach_diet extends AppCompatActivity {
 
 
         //Layout de la caja del ejercicio
-        LinearLayout mealLayout = new LinearLayout(Coach_diet.this);
+        LinearLayout mealLayout = new LinearLayout(Client_diet.this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -151,7 +143,7 @@ public class Coach_diet extends AppCompatActivity {
         layoutParams.setMargins(20, 5, 20, 5);
         mealLayout.setLayoutParams(layoutParams);
 
-        LinearLayout topLayout = new LinearLayout(Coach_diet.this);
+        LinearLayout topLayout = new LinearLayout(Client_diet.this);
         LinearLayout.LayoutParams topParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -160,7 +152,7 @@ public class Coach_diet extends AppCompatActivity {
         topParams.setMargins(20, 5, 20, 5);
         topLayout.setLayoutParams(topParams);
 
-        TextView nameTextView = new TextView(Coach_diet.this);
+        TextView nameTextView = new TextView(Client_diet.this);
         LinearLayout.LayoutParams textLayout = new LinearLayout.LayoutParams(
                 0,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -175,7 +167,7 @@ public class Coach_diet extends AppCompatActivity {
         textLayout.setMargins(40, 10, 30, 10);
         nameTextView.setLayoutParams(textLayout);
 
-        Space espacioFlexible = new Space(Coach_diet.this);
+        Space espacioFlexible = new Space(Client_diet.this);
         LinearLayout.LayoutParams espacioParams = new LinearLayout.LayoutParams(
                 0,
                 0,
@@ -183,7 +175,7 @@ public class Coach_diet extends AppCompatActivity {
         );
         espacioFlexible.setLayoutParams(espacioParams);
 
-        ImageView arrowImageView = new ImageView(Coach_diet.this);
+        ImageView arrowImageView = new ImageView(Client_diet.this);
         LinearLayout.LayoutParams arrowLayout = new LinearLayout.LayoutParams(
                 100,
                 100
@@ -202,7 +194,7 @@ public class Coach_diet extends AppCompatActivity {
 
         // Layout de la información del ejercicio
 
-        LinearLayout infoLayout = new LinearLayout(Coach_diet.this);
+        LinearLayout infoLayout = new LinearLayout(Client_diet.this);
         infoLayout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams bodyParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -211,7 +203,7 @@ public class Coach_diet extends AppCompatActivity {
         infoLayout.setLayoutParams(bodyParams);
         infoLayout.setVisibility(View.GONE);
         //TextViews que se insertaran a infoLayout
-        TextView infoText = new TextView(Coach_diet.this);
+        TextView infoText = new TextView(Client_diet.this);
         LinearLayout.LayoutParams seriesLayout = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT

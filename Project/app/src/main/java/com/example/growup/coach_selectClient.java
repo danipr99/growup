@@ -54,7 +54,7 @@ public class Coach_selectClient extends AppCompatActivity {
                     String password = snapshot.child("pasword").getValue().toString();
                     int age = Integer.parseInt(snapshot.child("age").getValue().toString());
                     String uid =  snapshot.child("uid").getValue().toString();
-                    Client c = new Client( name, email, password, age, uid, myCoachUID);
+                    Client c = new Client( name, email, password, age, uid, myCoachUID, false);
                     clientsWithMyCoachUID.add(c);
                 }
                 for (Client client : clientsWithMyCoachUID) {

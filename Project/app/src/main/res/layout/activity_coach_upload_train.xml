@@ -42,6 +42,13 @@
 
             android:src="@drawable/logo_foreground" />
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        >
+
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:layout_width="match_parent"
@@ -132,5 +139,5 @@
             android:backgroundTint="#D72534"/>
 
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

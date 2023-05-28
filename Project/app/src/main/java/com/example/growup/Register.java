@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +48,7 @@ public class Register extends AppCompatActivity {
     private EditText cPasswordInput;
     private EditText nameInput;
     private EditText ageInput;
+    private CheckBox isBulk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,26 @@ public class Register extends AppCompatActivity {
 // Lista de opciones para el Spinner
         Spinner spinner = findViewById(R.id.spinnerRegister);
 
+        LinearLayout checkboxLayout = findViewById(R.id.checkboxLayout);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedRole = parent.getItemAtPosition(position).toString();
+
+                // Verificar si la opción seleccionada es "Im a coach"
+                if (selectedRole.equals("I'm a coach")) {
+                    checkboxLayout.setVisibility(View.GONE); // Ocultar el LinearLayout
+                } else {
+                    checkboxLayout.setVisibility(View.VISIBLE); // Mostrar el LinearLayout
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         ArrayList<String> options = getListofCoachs();
         options.add("I'm a coach");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
@@ -65,6 +89,7 @@ public class Register extends AppCompatActivity {
         spinner.setAdapter(adapter);
         spinner.setPrompt("Select your coach");
         spinner.setAdapter(adapter);
+        isBulk = findViewById(R.id.checkbox);
 
 
 
@@ -106,9 +131,9 @@ public class Register extends AppCompatActivity {
                                             //Inserción al conjunto de Coachs
                                             all.newCoach(c);
                                         }else{//Registro de un Client
-                                            //Creación del client
+
                                             String uidCoach = searchCoach(spinner.getSelectedItem().toString());
-                                            Client c = new Client(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(), uidCoach);
+                                            Client c = new Client(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(), uidCoach, isBulk.isChecked());
                                             saveUserinDB(c);
                                             all.newClient(c);
 
@@ -123,7 +148,6 @@ public class Register extends AppCompatActivity {
                             });
                         }catch (Exception e){
                             e.printStackTrace();
-                            System.out.println("NOT WORKING");
                             Toast.makeText(Register.this, "Error in register: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                 }else{
@@ -150,11 +174,8 @@ public class Register extends AppCompatActivity {
         coachsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Iterar sobre cada hijo de Clients
-                for (DataSnapshot clientSnapshot : dataSnapshot.getChildren()) {
-                    // Obtener el valor del hijo como un objeto Map
 
-                    // Convertir el objeto Map en un objeto Client
+                for (DataSnapshot clientSnapshot : dataSnapshot.getChildren()) {
                     Coach coach = new Coach();
                     String w = clientSnapshot.getKey();
                     coach.setUid(w);
@@ -162,6 +183,7 @@ public class Register extends AppCompatActivity {
                     coach.setEmail(clientSnapshot.child("email").getValue().toString());
                     coach.setPasword(clientSnapshot.child("pasword").getValue().toString());
                     coach.setAge(Integer.parseInt(clientSnapshot.child("age").getValue().toString()));
+
                     result.add(coach.getNameSurname());
                     coachs.add(coach);
                 }

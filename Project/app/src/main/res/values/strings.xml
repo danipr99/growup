@@ -42,4 +42,18 @@
     <string name="daily_macros">Daily macros</string>
     <string name="kcal_diet">KCAL:</string>
     <string name="carbs_diet">CARBS:</string>
+    <string name="bulk">Bulk</string>
+    <string name="comming_soon">Comming soon...</string>
+    <string name="rules">Introduce here the following measures</string>
+    <string name="tip">Try to weigh and measure yourself on an empty stomach every Sunday.</string>
+    <string name="send">Send</string>
+    <string name="left_arm">Left arm</string>
+    <string name="right_arm">Right arm</string>
+    <string name="chest">Chest</string>
+    <string name="abdomen">Abdomen</string>
+    <string name="cm">cm</string>
+    <string name="hip">Hip</string>
+    <string name="weight">Weight</string>
+    <string name="right_thigh">Right thigh</string>
+    <string name="left_thigh">Left thigh</string>
 </resources>

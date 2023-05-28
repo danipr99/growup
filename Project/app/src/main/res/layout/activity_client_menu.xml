@@ -27,7 +27,7 @@
             android:id="@+id/title_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="NOMBRE CLIENTE"
+            android:text="@string/app_name"
             android:textSize="26sp"
             android:gravity="center"
             android:layout_weight="1"
@@ -133,7 +133,7 @@
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_upload"
+                android:src="@drawable/ic_journalbookmark"
                 android:paddingTop="19dp"
                 />
             <TextView
@@ -144,7 +144,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/upload"
+                android:text="Measures and weight"
                 android:textSize="16sp" />
         </LinearLayout>
 

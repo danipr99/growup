@@ -25,7 +25,7 @@
             android:id="@+id/nameClient"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="NOMBRE CLIENTE"
+            android:text="@string/app_name"
             android:textSize="26sp"
             android:gravity="center"
             android:layout_weight="1"
@@ -38,6 +38,17 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/logo_foreground" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <LinearLayout
         android:id="@+id/when"
         android:layout_width="match_parent"
@@ -80,7 +91,8 @@
             android:gravity="left"
             android:layout_marginStart="30dp"
             />
-
     </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

@@ -9,9 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
@@ -27,7 +25,7 @@
             android:id="@+id/nameClient"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="NOMBRE CLIENTE"
+            android:text="@string/app_name"
             android:textSize="26sp"
             android:gravity="center"
             android:layout_weight="1"
@@ -40,57 +38,42 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/logo_foreground" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/when"
+    <TextView
+        android:id="@+id/statistics"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="29sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/header"
+        android:text="@string/statistics"
+        />
+    <LinearLayout
+        android:id="@+id/macrosLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginVertical="190dp"
+        android:layout_marginHorizontal="90dp"
+        android:background="@drawable/selection"
         android:layout_below="@id/header">
         <TextView
-            android:id="@+id/monthTextView"
-            android:layout_width="200dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="Month"
-            />
-        <TextView
-            android:id="@+id/dayTextView"
-            android:layout_width="200dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textColor="#A6A6A6"
-            android:text="Day"
-            />
-    </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        >
-
-
-    <LinearLayout
-        android:id="@+id/body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/when"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/exertextV"
+            android:id="@+id/macroHead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:gravity="left"
-            android:text="Exercices"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="25sp"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:text="@string/comming_soon"
+            />
+
+
+
 
     </LinearLayout>
 
-</ScrollView>
+
 </RelativeLayout>

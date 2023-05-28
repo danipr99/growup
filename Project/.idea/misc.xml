@@ -10,6 +10,8 @@
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/drawable/selection.xml" value="0.1775" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/font/font.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_calendar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_diet.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_measures.xml" value="0.264" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_client_training.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_coach_calendar.xml" value="0.25416666666666665" />
@@ -25,6 +27,7 @@
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_main.xml" value="0.35805330243337197" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_menu_coach.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_statistics.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/DPDAN/OneDrive/Documentos/UAX/3YEAR/TFG/Project/app/src/main/res/layout/activity_upload.xml" value="0.24010416666666667" />
       </map>
     </option>

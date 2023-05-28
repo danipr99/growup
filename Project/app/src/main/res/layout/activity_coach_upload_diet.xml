@@ -42,32 +42,36 @@
 
             android:src="@drawable/logo_foreground" />
     </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        >
+
+
+    <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_margin="10dp"
+        android:layout_below="@id/header"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/selection"
-        android:layout_below="@id/header">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cuestionary"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
             android:layout_marginBottom="16dp"
-            android:textColor="@color/white"/>
-        <EditText
-            android:id="@+id/dietName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/dietName"
-            android:textColorHint="@color/white"
-            />
+            android:gravity="center"
+            android:text="@string/cuestionary"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <Spinner
             android:id="@+id/spinnerTipoDieta"
             android:layout_width="match_parent"
@@ -79,82 +83,76 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/breakfast"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/comidaEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lunch"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/cenaEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/dinner"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/snackEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/snack"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/recomendacionesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/recommendations"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/kcalEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/kcal"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
+
         <EditText
             android:id="@+id/carbsEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/carbs"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
+
         <EditText
             android:id="@+id/protEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prot"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
+
         <EditText
             android:id="@+id/fatEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/fat"
-            android:textColorHint="@color/white"
-            />
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/subirButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/upload"
             android:layout_margin="15dp"
-            android:backgroundTint="#D72534"/>
+            android:backgroundTint="#D72534"
+            android:text="@string/upload" />
 
     </LinearLayout>
 
 
-
+</ScrollView>
 
 
 </RelativeLayout>
