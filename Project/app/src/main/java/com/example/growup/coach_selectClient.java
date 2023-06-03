@@ -51,11 +51,28 @@ public class Coach_selectClient extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String name = snapshot.child("nameSurname").getValue().toString();
                     String email = snapshot.child("email").getValue().toString();
-                    String password = snapshot.child("pasword").getValue().toString();
                     int age = Integer.parseInt(snapshot.child("age").getValue().toString());
                     String uid =  snapshot.child("uid").getValue().toString();
-                    Client c = new Client( name, email, password, age, uid, myCoachUID, false);
+                    Client c = new Client( name, email, age, uid, myCoachUID, false);
                     clientsWithMyCoachUID.add(c);
+                }
+                if(clientsWithMyCoachUID.isEmpty()){
+                    TextView noClients = new TextView(Coach_selectClient.this);
+                    int margin = 25;
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                    );
+                    layoutParams.setMargins(margin, margin, margin, margin);
+                    layoutParams.gravity = Gravity.CENTER;
+
+                    noClients.setLayoutParams(layoutParams);
+                    noClients.setText("You don't have any clients assigned yet, please try again later.");
+                    noClients.setTextSize(24);
+                    noClients.setTextColor(Color.WHITE);
+                    noClients.setGravity(Gravity.CENTER_HORIZONTAL);
+                    list.addView(noClients);
+
                 }
                 for (Client client : clientsWithMyCoachUID) {
                     TextView clientBox = new TextView(Coach_selectClient.this);
@@ -85,6 +102,7 @@ public class Coach_selectClient extends AppCompatActivity {
                     list.addView(clientBox);
                 }
 
+
             }
 
             @Override
@@ -92,6 +110,8 @@ public class Coach_selectClient extends AppCompatActivity {
                 Log.e("TAG", "Error al obtener los clientes con el UID de mi entrenador", databaseError.toException());
             }
         });
+
+
 
     }
 }

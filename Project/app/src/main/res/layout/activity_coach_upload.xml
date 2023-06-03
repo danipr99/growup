@@ -42,7 +42,7 @@
     <LinearLayout
         android:id="@+id/upload"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_below="@id/header"
         android:gravity="center"
         android:orientation="horizontal">
@@ -111,14 +111,6 @@
 
         android:padding="20dp">
 
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/diet_select"
-                android:textColor="@color/white" />
 
 
 

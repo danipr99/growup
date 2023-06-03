@@ -73,7 +73,8 @@ public class Coach_upload extends AppCompatActivity {
 
     }
 
-    /*private void displayTrainingTypes(String uidCoach) {//Cada entrenador tiene sus dietas o cada usuario tiene sus dietas
+    /*
+    private void displayTrainingTypes(String uidCoach) {//Cada entrenador tiene sus dietas o cada usuario tiene sus dietas
         DatabaseReference databaseRefTrain = FirebaseDatabase.getInstance().getReference().child("diet");
         Query query = databaseRefTrain.orderByChild("Coach").equalTo(uidCoach);
 

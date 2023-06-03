@@ -326,7 +326,6 @@ public class Client_Training extends AppCompatActivity {
 
                                 }
                             });
-
                             // Texto bajo emoji
                             TextView textView = new TextView(Client_Training.this);
                             textViewList.add(textView);
@@ -372,7 +371,6 @@ public class Client_Training extends AppCompatActivity {
 
                                         // Establecer el TextView actualmente seleccionado
                                         selectedTextView = index;
-
                                         routinesRef.child(exerciseName).child("feedback").setValue(index);
                                         textView.setTextColor(Color.parseColor("#804191"));
                                     }
@@ -458,7 +456,8 @@ public class Client_Training extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Manejar el error de la lectura de datos desde Firebase
+                    Log.e(TAG, "Error al leer los datos: " + databaseError.getMessage());
+
                 }
             });
         }else{// DIA DE DESCANSO

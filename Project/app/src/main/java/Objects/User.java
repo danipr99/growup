@@ -6,21 +6,18 @@ import java.util.Objects;
 public class User {
     private String nameSurname;
     private String email;
-    private String pasword;
     private int age;
     private String uid;
 
-    public User(String nameSurname, String email, String pasword, int age, String uid){
+    public User(String nameSurname, String email, int age, String uid){
         this.nameSurname=nameSurname;
         this.email=email;
-        this.pasword=pasword;
         this.age=age;
         this.uid=uid;
     }
-    public User(String nameSurname, String email, String pasword, int age){
+    public User(String nameSurname, String email, int age){
         this.nameSurname=nameSurname;
         this.email=email;
-        this.pasword=pasword;
         this.age=age;
         this.uid="Prueba";
     }
@@ -33,9 +30,6 @@ public class User {
         return email;
     }
 
-    public String getPasword() {
-        return pasword;
-    }
 
     public int getAge() {
         return age;
@@ -47,10 +41,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
     }
 
     public void setAge(int age) {

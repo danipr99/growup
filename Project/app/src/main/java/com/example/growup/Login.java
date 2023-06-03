@@ -33,7 +33,6 @@ import Objects.Coach;
 public class Login extends AppCompatActivity {
     private static final String TAG = "FirebaseError";
     private FirebaseAuth mAuth;
-    All all= new All();
     TextView buttonRegister;
     Button buttonStart;
     EditText emailInput;
@@ -122,15 +121,14 @@ public class Login extends AppCompatActivity {
                     client.setUid(clientSnapshot.getKey());
                     client.setNameSurname(clientSnapshot.child("nameSurname").getValue().toString());//Seguir con los de abajo
                     client.setEmail(clientSnapshot.child("email").getValue().toString());
-                    client.setPasword(clientSnapshot.child("pasword").getValue().toString());
                     client.setAge(Integer.parseInt(clientSnapshot.child("age").getValue().toString()));
-                    all.newClient(client);
+
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, "Error al leer los datos: " + databaseError.getMessage());
+                Log.e(TAG, "Error al leer los DATOS: " + databaseError.getMessage());
             }
         });
 
@@ -148,14 +146,13 @@ public class Login extends AppCompatActivity {
                     coach.setUid(coachSnapshot.getKey());
                     coach.setNameSurname((String) coachMap.get("nameSurname"));
                     coach.setEmail((String) coachMap.get("email"));
-                    coach.setPasword((String) coachMap.get("pasword"));
-                    all.newCoach(coach);
+
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, "Error al leer los datos: " + databaseError.getMessage());
+                Log.e(TAG, "Error al leer los datosSS: " + databaseError.getMessage());
             }
         });
 
@@ -164,7 +161,6 @@ public class Login extends AppCompatActivity {
     private void readData(FirebaseCallBack firebaseCallBack){
         boolean[] result = {false};
         DatabaseReference clientsRef = FirebaseDatabase.getInstance().getReference().child("Clients");
-        DatabaseReference coachsRef = FirebaseDatabase.getInstance().getReference().child("Coachs");
         Log.e(TAG, "userId: " + userId);
 
         clientsRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {

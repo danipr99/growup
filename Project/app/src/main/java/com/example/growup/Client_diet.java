@@ -103,6 +103,7 @@ public class Client_diet extends AppCompatActivity {
 
                 } else {
                     // La dieta no existe en la base de datos
+                    Log.e("Diet", "Error al encontrar la dieta");
 
                 }
             }
@@ -110,7 +111,8 @@ public class Client_diet extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Ocurrió un error al acceder a los datos de la dieta
-                // Maneja el error según tus necesidades
+                Log.e("Diet", "Error al leer los datos: " + databaseError.getMessage());
+
             }
         });
 

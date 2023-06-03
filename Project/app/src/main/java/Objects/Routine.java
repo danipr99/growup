@@ -5,20 +5,10 @@ import java.util.ArrayList;
 public class Routine {
     private ArrayList<Exercice> routine;
     private String name;
-    private boolean isUse;
 
     public Routine(ArrayList<Exercice> routine, String name) {
         this.routine = routine;
         this.name = name;
-        this.isUse=false;
-    }
-
-    public boolean isUse() {
-        return isUse;
-    }
-
-    public void setUse(boolean use) {
-        isUse = use;
     }
 
     public ArrayList<Exercice> getRoutine() {

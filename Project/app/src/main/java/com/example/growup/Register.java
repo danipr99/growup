@@ -53,7 +53,6 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        All all = new All();
         Intent login = new Intent(getApplicationContext(), Login.class);
         setContentView(R.layout.activity_register);
         TextView buttonLogin = findViewById(R.id.inLogin);
@@ -123,20 +122,17 @@ public class Register extends AppCompatActivity {
                                         Toast.makeText(Register.this, "User register complete", Toast.LENGTH_SHORT).show();
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         //Compruebo si es un Coach o un cliente
-                                        if(spinner.getSelectedItem().toString().equals("I'm a coach")){
+                                        if(spinner.getSelectedItem().toString().equals("I'm a coach")){//Registro de un Coach
                                             List<Client> clients = new ArrayList<Client>();
 
-                                            Coach c = new Coach(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(),clients);
+                                            Coach c = new Coach(name, mail, age, FirebaseAuth.getInstance().getCurrentUser().getUid(),clients);
                                             saveUserinDB(c);
                                             //Inserción al conjunto de Coachs
-                                            all.newCoach(c);
                                         }else{//Registro de un Client
 
                                             String uidCoach = searchCoach(spinner.getSelectedItem().toString());
-                                            Client c = new Client(name, mail, password, age, FirebaseAuth.getInstance().getCurrentUser().getUid(), uidCoach, isBulk.isChecked());
+                                            Client c = new Client(name, mail, age, FirebaseAuth.getInstance().getCurrentUser().getUid(), uidCoach, isBulk.isChecked());
                                             saveUserinDB(c);
-                                            all.newClient(c);
-
                                         }
                                         startActivity(login);
                                         finish();
@@ -181,7 +177,6 @@ public class Register extends AppCompatActivity {
                     coach.setUid(w);
                     coach.setNameSurname(clientSnapshot.child("nameSurname").getValue().toString());
                     coach.setEmail(clientSnapshot.child("email").getValue().toString());
-                    coach.setPasword(clientSnapshot.child("pasword").getValue().toString());
                     coach.setAge(Integer.parseInt(clientSnapshot.child("age").getValue().toString()));
 
                     result.add(coach.getNameSurname());

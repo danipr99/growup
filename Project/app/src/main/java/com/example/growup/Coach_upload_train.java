@@ -35,7 +35,6 @@ public class Coach_upload_train extends AppCompatActivity {
     private StorageReference storageReference;
     private Uri imageUri;
     private TextView clientName;
-    private Spinner spinnerTipoDieta;
     private EditText trainName;
     private EditText exerNameEditText;
     private EditText kgEditText;
@@ -107,20 +106,10 @@ public class Coach_upload_train extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
             // Obtiene la URI de la imagen seleccionada
             imageUri = data.getData();
-
-
             imageName = "image_" + System.currentTimeMillis() + ".jpg";
             StorageReference imageRef = storageReference.child(imageName);
+            imageRef.putFile(imageUri);
 
-
-            UploadTask uploadTask = imageRef.putFile(imageUri);
-            uploadTask.addOnSuccessListener(taskSnapshot -> {
-
-                // utilizando taskSnapshot.getDownloadUrl() y guardarla en la base de datos, etc.
-            }).addOnFailureListener(e -> {
-
-
-            });
         }
     }
 }

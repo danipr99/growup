@@ -48,31 +48,7 @@ public class All {
         }
     }
 
-    public int loginPass(String email, String password) {
-        int result=-1; //-1 -> not found & | 0 -> Client | 1 -> Coach | 2 -> Duplicate | 3 -> Wrong password
-        for (Client client : allClients){
-            if(client.getEmail().equals(email)){
-                if(client.getPasword().equals(password)){
-                    result=0;
-                }else
-                    result=3;
 
-            }
-        }
-        for (Coach coach : allCoachs){
-            if(coach.getEmail().equals(email)){
-                if(result==0){
-                    result=2; //Ha encontrado un cliente con el mismo correo
-                }else{
-                    if (coach.getPasword().equals(password)){
-                        result=1;
-                    }else
-                        result=3;
-                }
-            }
-        }
-        return result;
-    }
     public Coach searchCoach(String coachString){
         for(Coach coach : allCoachs){
             if(coach.getNameSurname().equals(coachString)){
